@@ -176,7 +176,7 @@ static void initialize_csdadc(void)
             .intrPriority = CSDADC_INTERRUPT_PRIORITY,
         };
     /* Initialize CSDADC HW block */
-    csdadc_status = Cy_CSDADC_Init(&CYBSP_CSD_csdadc_config, &csdadc_context);
+    csdadc_status = Cy_CSDADC_Init(&CSDADC_csdadc_config, &csdadc_context);
     check_status("CSDADC initialization failed", csdadc_status);
 
     /* Configure CSDADC interrupt */
@@ -195,7 +195,7 @@ static void initialize_csdadc(void)
 *****************************************************************************/
 static void csdadc_isr(void)
 {
-    Cy_CSDADC_InterruptHandler(CYBSP_CSD_HW, &csdadc_context);
+    Cy_CSDADC_InterruptHandler(CSDADC_HW, &csdadc_context);
 }
 
 /******************************************************************************
