@@ -51,15 +51,15 @@
 /*******************************************************************************
 * Macros
 ********************************************************************************/
-#define CHANNEL0_ID (0u) /* Channel 0 */
-#define CHANNEL0_MASK (1u << CHANNEL0_ID)
-#define CSDADC_INTERRUPT_PRIORITY (7u)
-#define CSDADC_SAMPLING_DELAY_MS (100u) /* in milliseconds */
-#define CSDADC_CONVERSION_DELAY_MS (1u) /* in milliseconds */
-#define CSDADC_RESOLUTION_8BIT_MAX ((1UL << 8) - 1)
-#define CSDADC_RESOLUTION_10BIT_MAX ((1UL << 10) - 1)
-#define CSDADC_RESOLUTION_MAX_VAL CSDADC_RESOLUTION_10BIT_MAX
-#define CSDADC_GET_VOLTAGE(x) (CY_CFG_PWR_VDDA_MV * x / CSDADC_RESOLUTION_MAX_VAL)
+#define CHANNEL0_ID                     (0u) /* Channel 0 */
+#define CHANNEL0_MASK                   (1u << CHANNEL0_ID)
+#define CSDADC_INTERRUPT_PRIORITY       (7u)
+#define CSDADC_SAMPLING_DELAY_MS        (100u) /* in milliseconds */
+#define CSDADC_CONVERSION_DELAY_MS      (1u) /* in milliseconds */
+#define CSDADC_RESOLUTION_8BIT_MAX      ((1UL << 8) - 1)
+#define CSDADC_RESOLUTION_10BIT_MAX     ((1UL << 10) - 1)
+#define CSDADC_RESOLUTION_MAX_VAL       CSDADC_RESOLUTION_10BIT_MAX
+#define CSDADC_GET_VOLTAGE(x)           (CY_CFG_PWR_VDDA_MV * x / CSDADC_RESOLUTION_MAX_VAL)
 
 /*******************************************************************************
 * Function Prototypes
@@ -71,7 +71,7 @@ static void initialize_csdadc(void);
 /*******************************************************************************
 * Global Variables
 ********************************************************************************/
-/* Context variable used during the CSDIDAC operation */
+/* Context variable used during the CSDADC operation */
 cy_stc_csdadc_context_t csdadc_context;
 
 /*******************************************************************************
@@ -116,6 +116,7 @@ int main(void)
   
     /* Initializes the CSDADC firmware modules */
     initialize_csdadc();
+
     /* Enable the CSDADC firmware modules */
     csdadc_status = Cy_CSDADC_Enable(&csdadc_context);
     check_status("CSDADC enable API failed", csdadc_status);
@@ -167,6 +168,7 @@ static void initialize_csdadc(void)
 {
     /* Variable used for storing return status of SysInt APIs */
     cy_en_sysint_status_t sysint_status;
+
     /* Variable used for storing return status of CSDADC APIs */
     cy_en_csdadc_status_t csdadc_status;
 
@@ -176,6 +178,7 @@ static void initialize_csdadc(void)
             .intrSrc = csd_interrupt_IRQn,
             .intrPriority = CSDADC_INTERRUPT_PRIORITY,
         };
+
     /* Initialize CSDADC HW block */
     csdadc_status = Cy_CSDADC_Init(&CSDADC_csdadc_config, &csdadc_context);
     check_status("CSDADC initialization failed", csdadc_status);
