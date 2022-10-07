@@ -9,7 +9,7 @@
 *
 *
 *******************************************************************************
-* Copyright 2019-2021, Cypress Semiconductor Corporation (an Infineon company) or
+* Copyright 2019-2022, Cypress Semiconductor Corporation (an Infineon company) or
 * an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
 * This software, including source code, documentation and related
@@ -180,7 +180,7 @@ static void initialize_csdadc(void)
         };
 
     /* Initialize CSDADC HW block */
-    csdadc_status = Cy_CSDADC_Init(&CSDADC_csdadc_config, &csdadc_context);
+    csdadc_status = Cy_CSDADC_Init(&CSDADC_csdadc_config, &csdadc_context); /*CSDADC_csdadc_config ----> cy_stc_csdadc_config_t */
     check_status("CSDADC initialization failed", csdadc_status);
 
     /* Configure CSDADC interrupt */
@@ -199,7 +199,7 @@ static void initialize_csdadc(void)
 *****************************************************************************/
 static void csdadc_isr(void)
 {
-    Cy_CSDADC_InterruptHandler(CSDADC_HW, &csdadc_context);
+    Cy_CSDADC_InterruptHandler(CSDADC_HW, &csdadc_context); /*CSDADC_HW ---> CY_CSDADC_H*/
 }
 
 /******************************************************************************
