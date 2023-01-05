@@ -1,19 +1,24 @@
 # PSoC&trade; 6 MCU: CSD analog-to-digital converter (ADC)
 
-This code example demonstrates the usage of CSD ADC in PSoC&trade; 6 MCU. The CSDADC measures the external voltage and displays the conversion result in the terminal application. The CSDADC feature is provided by configuring the CAPSENSE&trade; sigma-delta (CSD) block as an ADC with 10-bit resolution. The CSD block can support both capacitive sensing and CSDADC functions in a time-multiplexed fashion. This example uses the [CSDADC middleware library](https://github.com/Infineon/csdadc).
+This code example demonstrates the usage of CSDADC in PSoC&trade; 6 MCU. The CSDADC measures the external voltage and displays the conversion result in the terminal application. The CSDADC feature is provided by configuring the CAPSENSE&trade; sigma-delta (CSD) block as an ADC with 10-bit resolution. The CSD block can support both capacitive sensing and CSDADC functions in a time-multiplexed fashion. This example uses the [CSDADC middleware library](https://github.com/Infineon/csdadc).
 
 **Note:** For general analog-to-digital conversion applications, the SAR ADC block in PSoC&trade; 6 MCU devices provides more features and higher resolution (12-bit). The CSDADC can used be if the SAR ADC is not available. The SAR ADC can be accessed using [ADC HAL](https://Infineon.github.io/mtb-hal-cat1/html/group__group__hal__adc.html).
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-example-psoc6-csdadc)
 
-[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMjcyNTEiLCJTcGVjIE51bWJlciI6IjAwMi0yNzI1MSIsIkRvYyBUaXRsZSI6IlBTb0MmdHJhZGU7IDYgTUNVOiBDU0QgYW5hbG9nLXRvLWRpZ2l0YWwgY29udmVydGVyIChBREMpIiwicmlkIjoic2RhayIsIkRvYyB2ZXJzaW9uIjoiMy4wLjAiLCJEb2MgTGFuZ3VhZ2UiOiJFbmdsaXNoIiwiRG9jIERpdmlzaW9uIjoiTUNEIiwiRG9jIEJVIjoiSUNXIiwiRG9jIEZhbWlseSI6IlBTT0MifQ==)
+[Provide feedback on this code example.]()
 
 ## Requirements
 
 - [ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) v3.0 or later (tested with v3.0)
-- Board support package (BSP) minimum required version: 4.0.0
+- Board support package (BSP) minimum required version: 4.1.0
 - Programming language: C
-- Associated parts: All [PSoC&trade; 6 MCU](https://www.infineon.com/PSoC6) parts, [AIROC&trade; CYW20735 Bluetooth&reg; & Bluetooth&reg; LE system on chip](https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-bluetooth-le-bluetooth-multiprotocol/), [AIROC&trade; CYW20819 Bluetooth&reg; & Bluetooth&reg; LE system on chip](https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-bluetooth-le-bluetooth-multiprotocol/airoc-bluetooth-le-bluetooth/cyw20819), [AIROC&trade; CYW43012 Wi-Fi & Bluetooth&reg; combo chip](https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-wi-fi-plus-bluetooth-combos/cyw43012/), [AIROC&trade; CYW4332W Wi-Fi & Bluetooth&reg; combo chip](https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-wi-fi-plus-bluetooth-combos/cyw4343w)
+- Associated parts: 
+  - All [PSoC&trade; 6 MCU](https://www.infineon.com/PSoC6) parts
+  - [AIROC&trade; CYW20735 Bluetooth&reg; & Bluetooth&reg; LE system on chip](https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-bluetooth-le-bluetooth-multiprotocol/)
+  - [AIROC&trade; CYW20819 Bluetooth&reg; & Bluetooth&reg; LE system on chip](https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-bluetooth-le-bluetooth-multiprotocol/airoc-bluetooth-le-bluetooth/cyw20819)
+  - [AIROC&trade; CYW43012 Wi-Fi & Bluetooth&reg; combo chip](https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-wi-fi-plus-bluetooth-combos/cyw43012/)
+  - [AIROC&trade; CYW4332W Wi-Fi & Bluetooth&reg; combo chip](https://www.infineon.com/cms/en/product/wireless-connectivity/airoc-wi-fi-plus-bluetooth-combos/wi-fi-4-802.11n/cyw4343w/?redirId=216345&utm_medium=referral&utm_source=cypress&utm_campaign=202110_globe_en_all_integration-product_families)
 ## Supported toolchains (make variable 'TOOLCHAIN')
 
 - GNU Arm&reg; embedded compiler v10.3.1 (`GCC_ARM`) - Default value of `TOOLCHAIN`
@@ -34,9 +39,9 @@ This code example demonstrates the usage of CSD ADC in PSoC&trade; 6 MCU. The CS
 - [PSoC&trade; 62S3 Wi-Fi Bluetooth&reg; prototyping kit](https://www.infineon.com/CY8CPROTO-062S3-4343W) (`CY8CPROTO-062S3-4343W`)
 - [PSoC&trade; 64 "Secure Boot" Wi-Fi Bluetooth&reg; pioneer kit](https://www.infineon.com/CY8CKIT-064B0S2-4343W) (`CY8CKIT-064B0S2-4343W`)
 - [PSoC&trade; 62S4 pioneer kit](https://www.infineon.com/CY8CKIT-062S4) (`CY8CKIT-062S4`)
-- [PSoC&trade; 62S2 evaluation kit](https://www.infineon.com/CY8CEVAL-062S2) (`CY8CEVAL-062S2`, `CY8CEVAL-062S2-LAI-4373M2`)
-- [PSoC&trade; 64 "Standard Secure"](https://www.infineon.com/CY8CKIT-064S0S2-4343W) (`CY8CKIT-064S0S2-4343W`)
-
+- [PSoC&trade; 62S2 evaluation kit](https://www.infineon.com/CY8CEVAL-062S2) (`CY8CEVAL-062S2`, `CY8CEVAL-062S2-LAI-4373M2`, `CY8CEVAL-062S2-MUR-43439M2`)
+- [PSoC&trade; 64 "Secure Boot" prototyping kit](https://www.infineon.com/CY8CPROTO-064B0S3) (`CY8CPROTO-064B0S3`)
+- [PSoC&trade; 64 "Secure Boot" prototyping kit](https://www.infineon.com/CY8CPROTO-064S1-SB) (`CY8CPROTO-064S1-SB`)
 
 ## Hardware setup
 
@@ -59,7 +64,9 @@ CY8CKIT-064B0S2-4343W| P10 [0]
 CY8CKIT-062S4        | P10 [0]
 CY8CEVAL-062S2       | P10 [0]
 CY8CEVAL-062S2-LAI-4373M2| P10 [0]
-CY8CKIT-064S0S2-4343W | P10 [0] 
+CY8CEVAL-062S2-MUR-43439M2 | P10 [0]
+CY8CPROTO-064B0S3    | P9 [1]
+CY8CPROTO-064S1-SB   | P10 [0]
 
 <br>
 
@@ -67,7 +74,6 @@ CY8CKIT-064S0S2-4343W | P10 [0]
 
 
 ## Software setup
-
 
 Install a terminal emulator if you don't have one. Instructions in this document use [Tera Term](https://ttssh2.osdn.jp/index.html.en).
 
@@ -98,7 +104,7 @@ Create the project and open it using one of the following:
 
 6. Click **Create** to complete the application creation process.
 
-For more details, see the [Eclipse IDE for ModusToolbox&trade; software user guide](https://www.infineon.com/MTBEclipseIDEUserGuide) (locally available at *{ModusToolbox&trade; software install directory}/ide_{version}/docs/mt_ide_user_guide.pdf*).
+For more details, see the [Eclipse IDE for ModusToolbox&trade; software user guide](https://www.infineon.com/MTBEclipseIDEUserGuide) (locally available at *{ModusToolbox&trade; software install directory}/docs_{version}/mt_ide_user_guide.pdf*).
 
 </details>
 
@@ -143,9 +149,9 @@ Argument | Description | Required/optional
 Following example adds the CY8CPROTO-062-4343W BSP to the already created application and makes it the active BSP for the app:
 
    ```
-   library-manager-cli --project "C:/mtb_projects/MyHelloWorld" --add-bsp-name CY8CPROTO-062-4343W --add-bsp-version "latest-v4.X" --add-bsp-location "local"
+   library-manager-cli --project "C:/mtb_projects/CsdAdc" --add-bsp-name CY8CPROTO-062-4343W --add-bsp-version "latest-v4.X" --add-bsp-location "local"
 
-   library-manager-cli --project "C:/mtb_projects/MyHelloWorld" --set-active-bsp APP_CY8CPROTO-062-4343W
+   library-manager-cli --project "C:/mtb_projects/CsdAdc" --set-active-bsp APP_CY8CPROTO-062-4343W
    ```
 
 </details>
@@ -182,7 +188,7 @@ For a list of supported IDEs and more details, see the "Exporting to IDEs" secti
 ## Operation
 
 
-If using a PSoC&trade; 64 "Secure" MCU kit (like CY8CKIT-064B0S2-4343W, CY8CKIT-064S0S2-4343W), the PSoC&trade; 64 device must be provisioned with keys and policies before being programmed. Follow the instructions in the ["Secure Boot" SDK user guide](https://www.infineon.com/dgdlac/Infineon-PSoC_64_Secure_MCU_Secure_Boot_SDK_User_Guide-Software-v07_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0f8c361a7666) to provision the device. If the kit is already provisioned, copy-paste the keys and policy folder to the application folder.
+If using a PSoC&trade; 64 "Secure" MCU kit (like CY8CKIT-064B0S2-4343W), the PSoC&trade; 64 device must be provisioned with keys and policies before being programmed. Follow the instructions in the ["Secure Boot" SDK user guide](https://www.infineon.com/dgdlac/Infineon-PSoC_64_Secure_MCU_Secure_Boot_SDK_User_Guide-Software-v07_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0f8c361a7666) to provision the device. If the kit is already provisioned, copy-paste the keys and policy folder to the application folder.
 
 1. Connect the board to your PC using the provided USB cable through the KitProg3 USB connector.
 
@@ -210,7 +216,7 @@ If using a PSoC&trade; 64 "Secure" MCU kit (like CY8CKIT-064B0S2-4343W, CY8CKIT-
       ```
    </details>
 
-4. After programming, the application starts automatically. Confirm that "\<CE Title>" is displayed on the UART terminal.
+4. After programming, the application starts automatically. Confirm that "\<PSoC&trade; 6 MCU: CSDADC>" is displayed on the UART terminal.
 
 
 5. Press and release the user button. Notice the time displayed in seconds. The time corresponds to the interval between the two user button release events.
@@ -238,7 +244,7 @@ The CSDADC can be configured by the ModusToolbox&trade; software CSD personality
 
 A GPIO pin is configured as the analog input to CSDADC, and a UART resource along with the [retarget-io](https://github.com/Infineon/retarget-io) library is used for displaying the terminal messages.
 
-The CSDADC is not enabled in the default board configuration provided by the BSP. This example overrides the `BSP_DESIGN_MODUS` component provided with the BSP to enable and configure the CSDADC. See the "Overriding the BSP configuration files" section of the [ModusToolbox&trade; software user guide](http://www.infineon.com/ModusToolboxUserGuide) (locally available at *{ModusToolbox&trade; software install directory}/ide_{version}/docs/mtb_user_guide.pdf*).
+The CSDADC is not enabled in the default board configuration provided by the BSP. This example overrides the `BSP_DESIGN_MODUS` component provided with the BSP to enable and configure the CSDADC. See the "Overriding the BSP configuration files" section of the [ModusToolbox&trade; software user guide](https://www.infineon.com/ModusToolboxUserGuide) (locally available at *{ModusToolbox&trade; software install directory}/ide_{version}/docs/mtb_user_guide.pdf*).
 
 The *design.modus* file containing the custom device configuration used in this application is present under the respective kit's folder: *\<application_folder>/templates/TARGET_\<BSP-NAME>/config/design.modus*.
 
@@ -251,17 +257,17 @@ This section guides how to set up the CSDADC middleware for the CSDADC operation
 
 2. On the **System** tab, configure the **CLK_PERI** frequency to achieve the desired frequency. This is the clock input to the CSDADC.
 
-3. On the **Peripherals** tab (#1 in Figure 2), enable the **CSD** personality under **System** (#2 in Figure 2) and enter the **Alias** (#3 in Figure 2).
+3. On the **Peripherals** tab (#1 in **Figure 2**), enable the **CSD** personality under **System** (#2 in **Figure 2**) and enter the **Alias** (#3 in **Figure 2**).
 
 4. Go to the **Parameters** pane and configure the CSD personality:
 
-   1. Assign the peripheral clock divider by using the **Clock** combo box (#4 in Figure 2). Any free divider can be used.
+   1. Assign the peripheral clock divider by using the **Clock** combo box (#4 in **Figure 2**). Any free divider can be used.
 
-   2. Set the **Enable CSDADC** check box (#5 in Figure 2).
+   2. Set the **Enable CSDADC** check box (#5 in **Figure 2**).
 
-   3. Configure the CSDADC parameters (Resolution, Measurement Range, and Number of Channels (#5 in Figure 2).
+   3. Configure the CSDADC parameters (Resolution, Measurement Range, and Number of Channels (#5 in **Figure 2**).
 
-   4. Assign pins for the CSDADC channels (#6 in Figure 2).
+   4. Assign pins for the CSDADC channels (#6 in **Figure 2**).
 
 4. Select **File** > **Save** to generate the initialization code. This is executed as  part of the `init_cycfg_all()` function, which is called by `cybsp_init()`.
 
@@ -271,7 +277,7 @@ This section guides how to set up the CSDADC middleware for the CSDADC operation
 
 ### Operation at a custom power supply voltage
 
-The application is configured to work with the default operating voltage of the kit. Table 2 lists the power supply voltages supported by each kit along with the default operating voltage.
+The application is configured to work with the default operating voltage of the kit. **Table 2** lists the power supply voltages supported by each kit along with the default operating voltage.
 
 **Table 2. Operating voltages supported by the kits**
 
@@ -289,38 +295,42 @@ CY8CKIT-064B0S2-4343W | 3.3 V / 1.8 V                | 3.3 V
 CY8CKIT-062S4         | 3.3 V / 1.8 V                | 3.3 V
 CY8CEVAL-062S2        | 3.3 V / 1.8 V                | 3.3 V
 CY8CEVAL-062S2-LAI-4373M2 | 3.3 V / 1.8 V            | 3.3 V
-CY8CKIT-064S0S2-4343W | 3.3 / 1.8 V                  | 3.3 V
+CY8CEVAL-062S2-MUR-43439M2 | 3.3 / 1.8 V             | 3.3 V
+CY8CPROTO-064B0S3     | 3.3 / 1.8 V                  | 3.3 V
+CY8CPROTO-064S1-SB    | 3.3 / 1.8 V                  | 3.3 V
 <br>
 
 For kits that support multiple operating voltages, do the following to work at a custom power supply, such as 1.8 V:
 
 1. Launch the **Device configurator** tool from the **Quick Panel** of the IDE. This opens the *design.modus* file located in *\<application_folder>/templates/TARGET_\<BSP-NAME>/config/design.modus*.
 
-2. Update the operating conditions as shown in Figure 3 and select **File** > **Save**.
+2. Update the operating conditions as shown in **Figure 3** and select **File** > **Save**.
 
    **Figure 3. Power settings to work with 1.8 V**
 
    ![](images/system_power_cfg.png)
 
-3. Change the jumper/switch setting as listed in Table 3.
+3. Change the jumper/switch setting as listed in **Table 3**.
 
-    **Table 3. Jumper/switch position for 1.8-V Operation**
+    **Table 3. Jumper/switch position for 1.8 V operation**
 
      Kit                   | Jumper/switch position         
     :----------------------|--------------------------------
      CY8CPROTO-062-4343W   | J3 (1-2)                       
      CY8CKIT-062-BLE       | SW5 (1-2)                      
      CY8CKIT-062-WIFI-BT   | SW5 (1-2)                      
-     CY8CPROTO-063-BLE     | Populate 0-ohm resistor at R41 
+     CY8CPROTO-063-BLE     | Populate 0 Ω resistor at R41 
      CY8CKIT-062S2-43012   | J14 (1-2)                      
      CYW9P62S1-43438EVB-01 | J14 (1-2)                      
      CYW9P62S1-43012EVB-01 | J14 (1-2)                      
      CY8CPROTO-062S3-4343W | J3 (1-2)                       
      CY8CKIT-064B0S2-4343W | J14 (1-2)                      
      CY8CKIT-062S4         | J12 (1-2)                      
-	  CY8CEVAL-062S2        | J12 (1-2)                      
-	  CY8CEVAL-062S2-LAI-4373M2 | J12 (1-2)      
-     CY8CKIT-064S0S2-4343W  | J14 (1-2)            
+     CY8CEVAL-062S2         | J18 (1-2)                      
+     CY8CEVAL-062S2-LAI-4373M2   | J18 (1-2)       
+     CY8CEVAL-062S2-MUR-43439M2  | J18 (1-2)   
+     CY8CPROTO-064B0S3     | J3 (NC)
+     CY8CPROTO-064S1-SB    | J3 (1-2)
 <br>
 
 4. Re-build and program the application to evaluate the application at the new power setting.
@@ -334,7 +344,7 @@ For kits that support multiple operating voltages, do the following to work at a
 Resource  |  Alias/object     |    Purpose
 :------- | :------------    | :------------
 CSDADC (Middleware) | csdadc_context | CSDADC middleware instance that provides an ADC solution using the CSD HW block for measurements
-UART (HAL) |cy_retarget_io_uart_obj| UART HAL object used by Retarget-IO for Debug UART port
+UART (HAL) |cy_retarget_io_uart_obj| UART HAL object used by Retarget-IO for debug UART port
 
 <br />
 
@@ -343,20 +353,19 @@ UART (HAL) |cy_retarget_io_uart_obj| UART HAL object used by Retarget-IO for Deb
 
 Resources  | Links
 -----------|----------------------------------
-Application notes  | [AN228571](https://www.infineon.com/AN228571) – Getting started with PSoC&trade; 6 MCU on ModusToolbox&trade; software <br>  [AN215656](https://www.infineon.com/AN215656) – PSoC&trade; 6 MCU: Dual-CPU system design
-Code examples  | [Using ModusToolbox&trade; software](https://github.com/Infineon/Code-Examples-for-ModusToolbox-Software) on GitHub
-Device documentation | [PSoC&trade; 6 MCU datasheets](https://www.infineon.com/cms/en/search.html#!view=downloads&term=psoc6&doc_group=Data%20Sheet) <br> [PSoC&trade; 6 technical reference manuals](https://www.infineon.com/cms/en/search.html#!view=downloads&term=psoc6&doc_group=Additional%20Technical%20Information)
-Development kits | Select your kits from the [evaluation board finder](https://www.infineon.com/cms/en/design-support/finder-selection-tools/product-finder/evaluation-board) page.
-Libraries on GitHub  | [mtb-pdl-cat1](https://github.com/Infineon/mtb-pdl-cat1) – PSoC&trade; 6 peripheral driver library (PDL)  <br> [mtb-hal-cat1](https://github.com/Infineon/mtb-hal-cat1) – Hardware abstraction layer (HAL) library <br> [retarget-io](https://github.com/Infineon/retarget-io) – Utility library to retarget STDIO messages to a UART port
-Middleware on GitHub  | [capsense](https://github.com/Infineon/capsense) – CAPSENSE&trade; library and documents <br> [psoc6-middleware](https://github.com/Infineon/modustoolbox-software#psoc-6-middleware-libraries) – Links to all PSoC&trade; 6 MCU middleware
-Tools  | [Eclipse IDE for ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) – ModusToolbox&trade; software is a collection of easy-to-use software and tools enabling rapid development with Infineon MCUs, covering applications from embedded sense and control to wireless and cloud-connected systems using AIROC&trade; Wi-Fi and Bluetooth® connectivity devices.
+Application notes  | [AN228571](https://www.infineon.com/AN228571) – Getting started with PSoC&trade; 6 MCU on ModusToolbox&trade; software <br />  [AN215656](https://www.infineon.com/AN215656) – PSoC&trade; 6 MCU: Dual-CPU system design <br /> [AN79953](https://www.infineon.com/AN79953) – Getting started with PSoC&trade; 4 <br />  [AN85951](https://www.infineon.com/AN85951) – PSoC&trade; 4 and PSoC&trade; 6 MCU CAPSENSE&trade; design guide
+Code examples  | [Using ModusToolbox&trade; software](https://github.com/Infineon/Code-Examples-for-ModusToolbox-Software) on GitHub <br /> [Using PSoC&trade; Creator](https://www.infineon.com/cms/en/design-support/software/code-examples/psoc-3-4-5-code-examples-for-psoc-creator)
+Device documentation | [PSoC&trade; 6 MCU datasheets](https://documentation.infineon.com/html/psoc6/bnm1651211483724.html) <br /> [PSoC&trade; 6 technical reference manuals](https://documentation.infineon.com/html/psoc6/zrs1651212645947.html)<br /> [PSoC&trade; 4 datasheets](https://www.infineon.com/cms/en/search.html?intc=searchkwr-return#!view=downloads&term=psoc%204&doc_group=Data%20Sheet) <br />[PSoC&trade; 4 technical reference manuals](https://www.infineon.com/cms/en/search.html#!term=psoc%204%20technical%20reference%20manual&view=all)
+Development kits | Select your kits from the [evaluation board finder](https://www.infineon.com/cms/en/design-support/finder-selection-tools/product-finder/evaluation-board)
+Libraries on GitHub  | [mtb-pdl-cat1](https://github.com/Infineon/mtb-pdl-cat1) – PSoC&trade; 6 peripheral driver library (PDL)  <br /> [mtb-hal-cat1](https://github.com/Infineon/mtb-hal-cat1) – Hardware abstraction layer (HAL) library <br /> [retarget-io](https://github.com/Infineon/retarget-io) – Utility library to retarget STDIO messages to a UART port <br />  [mtb-pdl-cat2](https://github.com/Infineon/mtb-pdl-cat2) – PSoC&trade; 4 peripheral driver library (PDL) <br />  [mtb-hal-cat2](https://github.com/Infineon/mtb-hal-cat2) – Hardware abstraction layer (HAL) library
+Middleware on GitHub  | [capsense](https://github.com/Infineon/capsense) – CAPSENSE&trade; library and documents <br /> [psoc6-middleware](https://github.com/Infineon/modustoolbox-software#psoc-6-middleware-libraries) – Links to all PSoC&trade; 6 MCU middleware
+Tools  | [Eclipse IDE for ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) – ModusToolbox&trade; software is a collection of easy-to-use software and tools enabling rapid development with Infineon MCUs, covering applications from embedded sense and control to wireless and cloud-connected systems using AIROC&trade; Wi-Fi and Bluetooth&reg; connectivity devices. <br /> [PSoC&trade; Creator](https://www.infineon.com/cms/en/design-support/tools/sdk/psoc-software/psoc-creator/) – IDE for PSoC&trade; and FM0+ MCU development
 
 <br />
 
 ## Other resources
 
-
-Infineon provides a wealth of data at www.infineon.com to help you select the right device, and quickly and effectively integrate it into your design.
+Infineon provides a wealth of data at [www.infineon.com](https://www.infineon.com/) to help you select the right device, and quickly and effectively integrate it into your design.
 
 For PSoC&trade; 6 MCU devices, see [How to design with PSoC&trade; 6 MCU - KBA223067](https://community.infineon.com/docs/DOC-14644) in the Infineon Developer community.
 
@@ -369,12 +378,12 @@ Document title: *CE227251* - *PSoC&trade; 6 MCU: CSD analog to digital converter
  Version | Description of change
  ------- | ---------------------
  1.0.0   | New code example
- 1.1.0   | Added support for CY8CPROTO-062S3-4343W, CYW9P62S1-43438EVB-01, and CYW9P62S1-43012EVB-01 kits<br> Updated to support ModusToolbox&trade; software v2.1<br> Minor formatting changes to the code
- 2.0.0   | Major update to support ModusToolbox&trade; software v2.2, added support for new kits<br> This version is not backward compatible with ModusToolbox&trade; software v2.1
- 2.1.0   | Updated to support ModusToolbox&trade; software v2.3<br /> Added support for CY8CKIT-062S4
- 2.2.0   | Added support for CY8CEVAL-062S2 and CY8CEVAL-062S2-LAI-4373M2
- 3.0.0   | Major update to support ModusToolbox&trade; v3.0 and BSPs v4.X. This version is not backward compatible with previous versions of ModusToolbox&trade;
-
+ 1.1.0   | Added support for CY8CPROTO-062S3-4343W, CYW9P62S1-43438EVB-01, and CYW9P62S1-43012EVB-01 kits. <br> Updated to support ModusToolbox&trade; software v2.1<br> Minor formatting changes to code.
+ 2.0.0   | Major update to support ModusToolbox&trade; software v2.2, added support for new kits.<br> This version is not backward compatible with ModusToolbox&trade; software v2.1.
+ 2.1.0   | Updated to support ModusToolbox&trade; software v2.3.<br /> Added support for CY8CKIT-062S4.
+ 2.2.0   | Added support for CY8CEVAL-062S2 and CY8CEVAL-062S2-LAI-4373M2.
+ 3.0.0   | Major update to support ModusToolbox&trade; v3.0 and BSPs v4.X. This version is not backward compatible with previous versions of ModusToolbox&trade;.
+ 3.1.0   | Added support for CY8CEVAL-062S2-MUR-43439M2, CY8CPROTO-064B0S3, and CY8CPROTO-064S1-SB.
 <br />
 
 ---------------------------------------------------------
@@ -383,4 +392,4 @@ Document title: *CE227251* - *PSoC&trade; 6 MCU: CSD analog to digital converter
 <br />
 TO THE EXTENT PERMITTED BY APPLICABLE LAW, CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH REGARD TO THIS DOCUMENT OR ANY SOFTWARE OR ACCOMPANYING HARDWARE, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  No computing device can be absolutely secure.  Therefore, despite security measures implemented in Cypress hardware or software products, Cypress shall have no liability arising out of any security breach, such as unauthorized access to or use of a Cypress product. CYPRESS DOES NOT REPRESENT, WARRANT, OR GUARANTEE THAT CYPRESS PRODUCTS, OR SYSTEMS CREATED USING CYPRESS PRODUCTS, WILL BE FREE FROM CORRUPTION, ATTACK, VIRUSES, INTERFERENCE, HACKING, DATA LOSS OR THEFT, OR OTHER SECURITY INTRUSION (collectively, "Security Breach").  Cypress disclaims any liability relating to any Security Breach, and you shall and hereby do release Cypress from any claim, damage, or other liability arising from any Security Breach.  In addition, the products described in these materials may contain design defects or errors known as errata which may cause the product to deviate from published specifications. To the extent permitted by applicable law, Cypress reserves the right to make changes to this document without further notice. Cypress does not assume any liability arising out of the application or use of any product or circuit described in this document. Any information provided in this document, including any sample design information or programming code, is provided only for reference purposes.  It is the responsibility of the user of this document to properly design, program, and test the functionality and safety of any application made of this information and any resulting product.  "High-Risk Device" means any device or system whose failure could cause personal injury, death, or property damage.  Examples of High-Risk Devices are weapons, nuclear installations, surgical implants, and other medical devices.  "Critical Component" means any component of a High-Risk Device whose failure to perform can be reasonably expected to cause, directly or indirectly, the failure of the High-Risk Device, or to affect its safety or effectiveness.  Cypress is not liable, in whole or in part, and you shall and hereby do release Cypress from any claim, damage, or other liability arising from any use of a Cypress product as a Critical Component in a High-Risk Device. You shall indemnify and hold Cypress, including its affiliates, and its directors, officers, employees, agents, distributors, and assigns harmless from and against all claims, costs, damages, and expenses, arising out of any claim, including claims for product liability, personal injury or death, or property damage arising from any use of a Cypress product as a Critical Component in a High-Risk Device. Cypress products are not intended or authorized for use as a Critical Component in any High-Risk Device except to the limited extent that (i) Cypress’s published data sheet for the product explicitly states Cypress has qualified the product for use in a specific High-Risk Device, or (ii) Cypress has given you advance written authorization to use the product as a Critical Component in the specific High-Risk Device and you have signed a separate indemnification agreement.
 <br />
-Cypress, the Cypress logo, and combinations thereof, WICED, ModusToolbox, PSoC, CapSense, EZ-USB, F-RAM, and Traveo are trademarks or registered trademarks of Cypress or a subsidiary of Cypress in the United States or in other countries. For a more complete list of Cypress trademarks, visit cypress.com. Other names and brands may be claimed as property of their respective owners.
+Cypress, the Cypress logo, and combinations thereof, WICED, ModusToolbox, PSoC, CapSense, EZ-USB, F-RAM, and Traveo are trademarks or registered trademarks of Cypress or a subsidiary of Cypress in the United States or in other countries. For a more complete list of Cypress trademarks, visit www.infineon.com. Other names and brands may be claimed as property of their respective owners.
